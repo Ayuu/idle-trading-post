@@ -37,7 +37,6 @@ export default class Base {
       doNotLoad.forEach(e => {
         delete buildingData[e]
       })
-      console.log(buildingData)
       const building = new IdleBuilding(...IDLE_BUILDING[buildingType])
       for (let [key, value] of Object.entries(modifiers)) {
         building.modifiers[key] = value

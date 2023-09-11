@@ -1,6 +1,6 @@
 import { IdleBuilding } from "../../building"
 import { IDLE_BUILDING, RESOURCE } from "../../constants"
-import { defaultdict } from "../../utils"
+import { defaultdict, formatScientificNotation, formatTime } from "../../utils"
 
 const GAME_COMPONENT_NAMES = {
   MAIN: "game-base",
@@ -43,7 +43,7 @@ const formatResourceListToStr = (
       container.appendChild(resourceSpan)
 
       const resourceAmountSpan = document.createElement("span")
-      resourceAmountSpan.textContent = amount
+      resourceAmountSpan.textContent = formatScientificNotation(amount)
       if (
         showResource &&
         (!resourceOwned[resourceType] || resourceOwned[resourceType] < amount)
@@ -141,7 +141,9 @@ export default class BaseDisplay {
   getBuildingGenerateInfo(container, building) {
     container.innerHTML = ""
     const prefixSpan = document.createElement("span")
-    prefixSpan.textContent = `\u{1F9FA} \u{23F3} ${building.generateRate()}`
+    prefixSpan.textContent = `\u{1F9FA} \u{23F3} ${formatTime(
+      building.generateRate()
+    )}`
     container.appendChild(prefixSpan)
 
     if (building.level > 0) {
@@ -152,7 +154,7 @@ export default class BaseDisplay {
   getBuildingNextRequirement(container, building, baseResource) {
     container.innerHTML = ""
     const prefixSpan = document.createElement("span")
-    prefixSpan.textContent = `\u{1F6E0} \u{23F3} ${JSON.stringify(
+    prefixSpan.textContent = `\u{1F6E0} \u{23F3} ${formatTime(
       building.getTimeRequiredToBuild()
     )}`
     container.appendChild(prefixSpan)
