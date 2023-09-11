@@ -12,7 +12,7 @@ const csso = require("csso")
 
 const rootFolder = path.resolve(__dirname, "../")
 const srcFolder = path.resolve(rootFolder, "dist")
-const outFolder = path.resolve(rootFolder, "out")
+const outFolder = path.resolve(rootFolder, "docs")
 
 const outIndexHtmlPath = path.resolve(outFolder, "index.html")
 const outZipPath = path.resolve(outFolder, "out.zip")
