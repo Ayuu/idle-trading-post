@@ -153,6 +153,10 @@ export default class BaseDisplay {
 
   getBuildingNextRequirement(container, building, baseResource) {
     container.innerHTML = ""
+    if (building.level === building.materials.length) {
+      return
+    }
+
     const prefixSpan = document.createElement("span")
     prefixSpan.textContent = `\u{1F6E0} \u{23F3} ${formatTime(
       building.getTimeRequiredToBuild()

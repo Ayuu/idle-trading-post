@@ -5,6 +5,11 @@ body {
 }
 
 #topbar,
+#navbar {
+  z-index: 1;
+}
+
+#topbar,
 #navbar,
 .row {
   background-color: #333;
@@ -107,6 +112,7 @@ button:disabled {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-height: 36px;
 }
 
 .btn:hover {

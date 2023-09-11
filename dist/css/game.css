@@ -24,8 +24,9 @@
   display: flex;
   flex-direction: column;
   flex: 0;
-  min-width: 54px;
+  min-width: 72px;
   transition: min-width 0.3s ease;
+  overflow: auto;
 }
 
 #game-leftbar.expand {
@@ -62,5 +63,6 @@
 
 .btn-upgrade span {
   display: flex;
-  gap: 0 4px ;
+  gap: 0 4px;
+  align-items: flex-end;
 }
