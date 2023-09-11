@@ -1,0 +1,61 @@
+#game-main {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  height: calc(100% - 42px - 42px - 42px);
+}
+
+#game-base {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#game-container {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  gap: 8px;
+  min-height: 84px;
+  overflow: auto;
+}
+
+#game-leftbar {
+  display: flex;
+  flex-direction: column;
+  flex: 0;
+  min-width: 54px;
+  transition: min-width 0.3s ease;
+}
+
+#game-leftbar.expand {
+  min-width: 120px;
+}
+
+#game-right-container {
+  display: flex;
+  flex: 1;
+}
+
+#game-leftbar {
+  border-right: 1px solid #333;
+}
+
+.btn-upgrade {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+  position: relative;
+  min-height: 84px;
+}
+
+.btn-upgrade .progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  background-color: #4a89c5;
+  opacity: 30%;
+}

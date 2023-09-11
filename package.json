@@ -1,0 +1,41 @@
+{
+  "name": "idle-trading-game",
+  "version": "1.0.0",
+  "description": "ghosts",
+  "main": "scripts/main.js",
+  "private": true,
+  "scripts": {
+    "zip": "node ./scripts/zip.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ayuu/idle-trading-game.git"
+  },
+  "keywords": [
+    "js13k"
+  ],
+  "author": "Ayuu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ayuu/idle-trading-game/issues"
+  },
+  "homepage": "https://github.com/Ayuu/idle-trading-game#readme",
+  "devDependencies": {
+    "archiver": "^3.1.1",
+    "cheerio": "^1.0.0-rc.3",
+    "csso": "^3.5.1",
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.3.0",
+    "fast-xml-parser": "^3.12.20",
+    "fernandez-polygon-decomposition": "^1.1.1",
+    "html-minifier": "^4.0.0",
+    "mkdirp": "^0.5.1",
+    "prettier": "^1.18.2",
+    "prettysize": "^2.0.0",
+    "terser": "^4.3.1",
+    "terser-webpack-plugin": "^5.3.9",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
