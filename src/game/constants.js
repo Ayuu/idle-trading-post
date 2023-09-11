@@ -6,7 +6,7 @@ import { Animal } from "./farm"
 export const DIFFICULTY = {
   EASY: 1,
   MEDIUM: 2,
-  HARD: 3,
+  HARD: 3
 }
 
 export const CLIMATE = {
@@ -14,7 +14,7 @@ export const CLIMATE = {
   Tropical: 1,
   Arid: 2,
   Cold: 4,
-  Mountain: 5,
+  Mountain: 5
 }
 
 // emoji unicode per climate
@@ -23,7 +23,7 @@ export const CLIMATE_EMOJI = {
   [CLIMATE.Tropical]: "\u{1F334}",
   [CLIMATE.Arid]: "\u{1F3DC}\u{FE0F}",
   [CLIMATE.Cold]: "\u{2744}\u{FE0F}",
-  [CLIMATE.Mountain]: "\u{1F3D4}\u{FE0F}",
+  [CLIMATE.Mountain]: "\u{1F3D4}\u{FE0F}"
 }
 
 export const SETTINGS_PER_DIFFICULTY = {
@@ -36,8 +36,8 @@ export const SETTINGS_PER_DIFFICULTY = {
       [CLIMATE.Tropical]: 2500,
       [CLIMATE.Arid]: 15000,
       [CLIMATE.Cold]: 20000,
-      [CLIMATE.Mountain]: 25000,
-    },
+      [CLIMATE.Mountain]: 25000
+    }
   },
   [DIFFICULTY.MEDIUM]: {
     coins: 2500,
@@ -48,8 +48,8 @@ export const SETTINGS_PER_DIFFICULTY = {
       [CLIMATE.Tropical]: 2500,
       [CLIMATE.Arid]: 15000,
       [CLIMATE.Cold]: 20000,
-      [CLIMATE.Mountain]: 25000,
-    },
+      [CLIMATE.Mountain]: 25000
+    }
   },
   [DIFFICULTY.HARD]: {
     coins: 1000,
@@ -60,16 +60,16 @@ export const SETTINGS_PER_DIFFICULTY = {
       [CLIMATE.Tropical]: 1000,
       [CLIMATE.Arid]: 1000,
       [CLIMATE.Cold]: 1000,
-      [CLIMATE.Mountain]: 1000,
-    },
-  },
+      [CLIMATE.Mountain]: 1000
+    }
+  }
 }
 
 export const REGION = {
   Europe: 1,
   Asia: 2,
   "Middle East": 3,
-  Africa: 4,
+  Africa: 4
 }
 
 export const RESOURCE_TYPE = {
@@ -83,18 +83,18 @@ export const RESOURCE_TYPE = {
   rice: 8,
   gold: 9,
   wheat: 10,
-  milk: 11,
+  milk: 11
 }
 
 export const RESOURCE = {
   [RESOURCE_TYPE.wood]: new Resource("\u{1F332}", {
-    climates: [CLIMATE.Temperate, CLIMATE.Cold],
+    climates: [CLIMATE.Temperate, CLIMATE.Cold]
   }),
   [RESOURCE_TYPE.stone]: new Resource("\u{1F9F1}"),
   [RESOURCE_TYPE.iron]: new Resource("iron"),
   [RESOURCE_TYPE.copper]: new Resource("copper"),
   [RESOURCE_TYPE.gold]: new Resource("gold"),
-  [RESOURCE_TYPE.leather]: new Resource("leather"),
+  [RESOURCE_TYPE.leather]: new Resource("\u{1F9E4}"),
   [RESOURCE_TYPE.silk]: new Resource("silk"),
 
   // animal product
@@ -104,7 +104,7 @@ export const RESOURCE = {
   // 13th century food
   [RESOURCE_TYPE.rice]: new Resource("\u{1F35A}"),
   [RESOURCE_TYPE.wheat]: new Resource("\u{1F33E}"),
-  [RESOURCE_TYPE.milk]: new Resource("\u{1F95B}"),
+  [RESOURCE_TYPE.milk]: new Resource("\u{1F95B}")
 }
 
 export const ANIMAL = {
@@ -112,22 +112,22 @@ export const ANIMAL = {
     "cow",
     3 * 60,
     {
-      [RESOURCE_TYPE.milk]: 1,
+      [RESOURCE_TYPE.milk]: 1
     },
     {
       [RESOURCE_TYPE.meat]: 3,
-      [RESOURCE_TYPE.hide]: 5,
+      [RESOURCE_TYPE.hide]: 5
     }
   ),
   sheep: new Animal(
     "sheep",
     10 * 60,
     {
-      [RESOURCE_TYPE.wool]: 3,
+      [RESOURCE_TYPE.wool]: 3
     },
     {
       [RESOURCE_TYPE.meat]: 2,
-      [RESOURCE_TYPE.hide]: 3,
+      [RESOURCE_TYPE.hide]: 3
     }
   ),
   pig: new Animal(
@@ -135,15 +135,15 @@ export const ANIMAL = {
     0,
     {},
     {
-      [RESOURCE_TYPE.meat]: 1,
+      [RESOURCE_TYPE.meat]: 1
     }
-  ),
+  )
 }
 
 export const IDLE_BUILDING = {}
 const rawResources = [
   [RESOURCE_TYPE.wood, "Lumbermill"],
-  [RESOURCE_TYPE.stone, "Stonemason"],
+  [RESOURCE_TYPE.stone, "Stonemason"]
 ]
 rawResources.forEach(([res, name]) => {
   IDLE_BUILDING[name] = [
@@ -151,29 +151,44 @@ rawResources.forEach(([res, name]) => {
     [
       {},
       {
-        [RESOURCE_TYPE.wood]: 30,
+        [RESOURCE_TYPE.wood]: 30
       },
       {
         [RESOURCE_TYPE.wood]: 60,
-        [RESOURCE_TYPE.stone]: 30,
+        [RESOURCE_TYPE.stone]: 30
       },
       {
-        [RESOURCE_TYPE.wood]: 120,
-        [RESOURCE_TYPE.stone]: 120,
-        [RESOURCE_TYPE.leather]: 10,
+        [RESOURCE_TYPE.wood]: 1000,
+        [RESOURCE_TYPE.stone]: 1000
       },
+      {
+        [RESOURCE_TYPE.wood]: 2500,
+        [RESOURCE_TYPE.stone]: 2500
+      },
+      {
+        [RESOURCE_TYPE.wood]: 5000,
+        [RESOURCE_TYPE.stone]: 5000
+      },
+      {
+        [RESOURCE_TYPE.wood]: 10000,
+        [RESOURCE_TYPE.stone]: 10000
+      },
+      {
+        [RESOURCE_TYPE.wood]: 50000,
+        [RESOURCE_TYPE.stone]: 50000
+      }
     ],
     2,
     {
-      [res]: 10,
+      [res]: 10
     },
-    5,
+    5
   ]
 })
 
 const basicResources = [
   [RESOURCE_TYPE.rice, "Rice Farm"],
-  [RESOURCE_TYPE.wheat, "Wheat Farm"],
+  [RESOURCE_TYPE.wheat, "Wheat Farm"]
 ]
 basicResources.forEach(([res, name]) => {
   IDLE_BUILDING[name] = [
@@ -181,18 +196,18 @@ basicResources.forEach(([res, name]) => {
     [
       {
         [RESOURCE_TYPE.wood]: 30,
-        [RESOURCE_TYPE.stone]: 10,
+        [RESOURCE_TYPE.stone]: 10
       },
       {
         [RESOURCE_TYPE.wood]: 120,
-        [RESOURCE_TYPE.stone]: 90,
-      },
+        [RESOURCE_TYPE.stone]: 90
+      }
     ],
     10,
     {
-      [res]: 50,
+      [res]: 50
     },
-    30,
+    30
   ]
 })
 
@@ -201,15 +216,15 @@ export const BUILDING = {
     "tannery",
     {
       [RESOURCE_TYPE.wood]: 150,
-      [RESOURCE_TYPE.stone]: 100,
+      [RESOURCE_TYPE.stone]: 100
     },
     {
-      [RESOURCE.leather]: 1,
+      [RESOURCE.leather]: 1
     },
     {
-      [RESOURCE_TYPE.hide]: 3,
+      [RESOURCE_TYPE.hide]: 3
     }
-  ),
+  )
 }
 
 export const EQUIPMENT = {
@@ -225,7 +240,7 @@ export const EQUIPMENT = {
   woodShield: new Shield("woodShield", 0.02, [[RESOURCE_TYPE.wood, 25]]),
   stoneShield: new Shield("stoneShield", 0.06, [[RESOURCE_TYPE.stone, 25]]),
   goldShield: new Shield("goldShield", 0.11, [[RESOURCE_TYPE.gold, 25]]),
-  ironShield: new Shield("ironShield", 0.2, [[RESOURCE_TYPE.iron, 25]]),
+  ironShield: new Shield("ironShield", 0.2, [[RESOURCE_TYPE.iron, 25]])
 }
 
 // Spices were primarily grown in tropical regions of the world, where the climate is warm and humid.
@@ -255,5 +270,5 @@ export const COMPONENT_NAMES = {
   // view for guild settings / research
   GUILD_SCR: "guild-scr",
   // view for base / stats
-  BASE_SCR: "base-scr",
+  BASE_SCR: "base-scr"
 }

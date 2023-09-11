@@ -66,15 +66,12 @@ export default class Scaffold {
   }
 
   update(base, deltaTime) {
-    this.elapsedTime += deltaTime / 1000
     if (this.buildStartTime) {
-      if (this.elapsedTime >= this.getTimeRequiredToBuild()) {
+      const elapsedTime =
+        (new Date().getTime() - this.buildStartTime.getTime()) / 1000
+      if (elapsedTime >= this.getTimeRequiredToBuild()) {
         this.buildStartTime = null
         this.level += 1
-        this.elapsedTime = Math.max(
-          this.elapsedTime - this.getTimeRequiredToBuild(),
-          0
-        )
       }
     }
   }

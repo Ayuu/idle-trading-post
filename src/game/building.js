@@ -22,6 +22,7 @@ export class IdleBuilding extends Scaffold {
 
   update(base, deltaTime) {
     super.update(base, deltaTime)
+    this.elapsedTime += deltaTime / 1000
 
     if (this.level === 0) {
       return

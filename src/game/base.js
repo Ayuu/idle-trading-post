@@ -6,8 +6,14 @@ import { defaultdict, generateLocation } from "./utils.js"
 // Base Class
 export default class Base {
   static fromJson(json) {
-    const { buildings, researches, resources, attack, defense, ...baseData } =
-      json
+    const {
+      buildings,
+      researches,
+      resources,
+      attack,
+      defense,
+      ...baseData
+    } = json
     const base = new Base()
     Object.assign(base, baseData)
     for (let [key, value] of Object.entries(resources)) {
@@ -21,7 +27,7 @@ export default class Base {
     }
     base.buildings = {}
     for (const [buildingType, b] of Object.entries(buildings)) {
-      const { modifiers, ...buildingData } = b
+      const { modifiers, materials, ...buildingData } = b
       const building = new IdleBuilding(...IDLE_BUILDING[buildingType])
       for (let [key, value] of Object.entries(modifiers)) {
         building.modifiers[key] = value
