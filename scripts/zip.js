@@ -141,6 +141,9 @@ function zipOutFile(outHtmlText) {
     archive.append(Buffer.from(outHtmlText), {
       name: path.basename(outIndexHtmlPath)
     })
+    archive.file(path.resolve(srcFolder, "favicon.ico"), {
+      name: "favicon.ico"
+    })
 
     archive.finalize()
   })
