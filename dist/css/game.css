@@ -59,3 +59,8 @@
   background-color: #4a89c5;
   opacity: 30%;
 }
+
+.btn-upgrade span {
+  display: flex;
+  gap: 0 4px ;
+}
