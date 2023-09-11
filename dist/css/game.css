@@ -30,7 +30,7 @@
 }
 
 #game-leftbar.expand {
-  min-width: 120px;
+  min-width: 160px;
 }
 
 #game-right-container {
@@ -40,6 +40,10 @@
 
 #game-leftbar {
   border-right: 1px solid #333;
+}
+
+#game-leftbar .btn {
+  border-radius: 0;
 }
 
 .btn-upgrade {
