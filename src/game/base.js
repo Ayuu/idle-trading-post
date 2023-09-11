@@ -27,7 +27,17 @@ export default class Base {
     }
     base.buildings = {}
     for (const [buildingType, b] of Object.entries(buildings)) {
-      const { modifiers, materials, ...buildingData } = b
+      const { modifiers, ...buildingData } = b
+      const doNotLoad = [
+        "materials",
+        "generationRate",
+        "generatedItems",
+        "timeToBuild"
+      ]
+      doNotLoad.forEach(e => {
+        delete buildingData[e]
+      })
+      console.log(buildingData)
       const building = new IdleBuilding(...IDLE_BUILDING[buildingType])
       for (let [key, value] of Object.entries(modifiers)) {
         building.modifiers[key] = value
