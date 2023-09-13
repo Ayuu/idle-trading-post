@@ -1,9 +1,9 @@
 import { COMPONENT_NAMES } from "../constants"
 
-const GUILD_COMPONENTS = {
+export const GUILD_COMPONENTS = {
   COINS: "guild-coins",
   NAME: "guild-name",
-  RESEARCH: "guild-research",
+  RESEARCH: "guild-research"
 }
 
 export default class TopBar {
@@ -14,7 +14,7 @@ export default class TopBar {
 
   update() {
     this.nameContainer.innerHTML = `Guild name: ${this.guild.name}`
-    this.coinsContainer.innerHTML = `&#x1F4B0; ${this.guild.coins}`
+    this.coinsContainer.innerHTML = `\u{1F4B0} ${this.guild.coins}`
   }
 
   create() {

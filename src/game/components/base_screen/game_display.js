@@ -2,10 +2,11 @@ import { COMPONENT_NAMES } from "../../constants"
 import BaseDisplay from "./base_display"
 import CreateBaseDisplay from "./create_base_display"
 import LeftBar, { LEFT_COMPONENT_NAMES } from "./left_bar"
+import MarketDisplay from "./market_display"
 
 const GAME_COMPONENT_NAMES = {
   LEFTBAR: "game-leftbar",
-  RIGHTCONTAINER: "game-right-container",
+  RIGHTCONTAINER: "game-right-container"
 }
 
 export default class GameDisplay {
@@ -26,7 +27,6 @@ export default class GameDisplay {
   updateBase(name) {
     this.rightContainer.innerHTML = ""
 
-    const currentBase = this.engine.gameState.currentBase
     if (name === LEFT_COMPONENT_NAMES.CREATE_BASE) {
       const createBase = this.createBaseDisplay.create()
       this.rightContainer.appendChild(createBase)

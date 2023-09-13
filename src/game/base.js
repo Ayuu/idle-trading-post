@@ -1,6 +1,7 @@
 import { Building, IdleBuilding } from "./building.js"
 import Cargo from "./cargo.js"
 import { EQUIPMENT, IDLE_BUILDING } from "./constants.js"
+import Market from "./market.js"
 import { defaultdict, generateLocation } from "./utils.js"
 
 // Base Class
@@ -12,10 +13,12 @@ export default class Base {
       resources,
       attack,
       defense,
+      market,
       ...baseData
     } = json
     const base = new Base()
     Object.assign(base, baseData)
+    base.market = Market.fromJson(market)
     for (let [key, value] of Object.entries(resources)) {
       base.resources[key] = value
     }
@@ -75,6 +78,7 @@ export default class Base {
     this.defense = defaultdict(0)
     this.sumDef = 0
     this.lastSync = new Date()
+    this.market = new Market()
   }
 
   craftEquipment(equipmentType) {

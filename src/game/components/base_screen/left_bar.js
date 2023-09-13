@@ -1,7 +1,7 @@
 import { CLIMATE_EMOJI } from "../../constants"
 
 export const LEFT_COMPONENT_NAMES = {
-  CREATE_BASE: "Y3JlYXRlLWJhc2UtMTYzNjc3MDcxMA==",
+  CREATE_BASE: "Y3JlYXRlLWJhc2UtMTYzNjc3MDcxMA=="
 }
 
 // This will display the list of base + the create base button
@@ -9,7 +9,7 @@ export default class LeftBar {
   constructor(engine) {
     this.engine = engine
     this.buttons = {}
-    this.expanded = true
+    this.expanded = window.screen.width > 425
   }
 
   updateBase(baseId) {

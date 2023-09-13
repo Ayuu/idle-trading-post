@@ -6,7 +6,7 @@ import NavBar from "./components/nav_bar"
 import {
   COMPONENT_NAMES,
   DIFFICULTY,
-  SETTINGS_PER_DIFFICULTY,
+  SETTINGS_PER_DIFFICULTY
 } from "./constants"
 import Guild from "./guild"
 import TopBar from "./components/top_bar"
@@ -37,12 +37,12 @@ export default class GameEngine {
       difficulty,
       settings,
       bases: {
-        [LEFT_COMPONENT_NAMES.CREATE_BASE]: undefined,
+        [LEFT_COMPONENT_NAMES.CREATE_BASE]: undefined
       },
       guild: new Guild(this.id, settings),
       currentBase: LEFT_COMPONENT_NAMES.CREATE_BASE,
       createdAt: new Date(),
-      lastSync: new Date(),
+      lastSync: new Date()
     }
     this.timeElapsed = 0
     this.components = { container }

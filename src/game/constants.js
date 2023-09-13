@@ -87,24 +87,24 @@ export const RESOURCE_TYPE = {
 }
 
 export const RESOURCE = {
-  [RESOURCE_TYPE.wood]: new Resource("\u{1F332}", {
+  [RESOURCE_TYPE.wood]: new Resource("\u{1F332}", "wood", [1, 3], {
     climates: [CLIMATE.Temperate, CLIMATE.Cold]
   }),
-  [RESOURCE_TYPE.stone]: new Resource("\u{1F9F1}"),
-  [RESOURCE_TYPE.iron]: new Resource("iron"),
-  [RESOURCE_TYPE.copper]: new Resource("copper"),
-  [RESOURCE_TYPE.gold]: new Resource("gold"),
-  [RESOURCE_TYPE.leather]: new Resource("\u{1F9E4}"),
-  [RESOURCE_TYPE.silk]: new Resource("silk"),
+  [RESOURCE_TYPE.leather]: new Resource("\u{1F9E4}", "leather", [1, 3]),
+  [RESOURCE_TYPE.stone]: new Resource("\u{1F9F1}", "stone", [1, 3]),
+  [RESOURCE_TYPE.iron]: new Resource("i", "iron", [1, 3]),
+  [RESOURCE_TYPE.copper]: new Resource("c", "copper", [1, 3]),
+  [RESOURCE_TYPE.gold]: new Resource("g", "gold", [1, 3]),
+  [RESOURCE_TYPE.silk]: new Resource("s", "silk", [1, 3]),
 
   // animal product
-  [RESOURCE_TYPE.wool]: new Resource("wool"),
-  [RESOURCE_TYPE.hide]: new Resource("hide"),
+  [RESOURCE_TYPE.wool]: new Resource("w", "wool", [1, 3]),
+  [RESOURCE_TYPE.hide]: new Resource("h", "hide", [1, 3]),
 
   // 13th century food
-  [RESOURCE_TYPE.rice]: new Resource("\u{1F35A}"),
-  [RESOURCE_TYPE.wheat]: new Resource("\u{1F33E}"),
-  [RESOURCE_TYPE.milk]: new Resource("\u{1F95B}")
+  [RESOURCE_TYPE.rice]: new Resource("\u{1F35A}", "rice", [3, 5]),
+  [RESOURCE_TYPE.wheat]: new Resource("\u{1F33E}", "wheat", [3, 5]),
+  [RESOURCE_TYPE.milk]: new Resource("\u{1F95B}", "milk", [5, 10])
 }
 
 export const ANIMAL = {

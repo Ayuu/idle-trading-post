@@ -15,7 +15,7 @@ export default class ScreenManager {
     landingScreen.className = "landing-screen"
 
     const components = [
-      new Title("Welcome to the Idle Trading Colonies game"),
+      new Title("Welcome to the Idle Merchant Guild"),
       new Button(
         "Load a game",
         () => this.showGames(),
@@ -61,6 +61,8 @@ export default class ScreenManager {
         ])
       )
     })
+
+    components.push(new Button("Back", () => this.showLanding()))
 
     components.forEach(component => {
       if (component.shouldShow()) {

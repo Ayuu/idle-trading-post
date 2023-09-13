@@ -18,9 +18,12 @@ export const defaultdict = defaultValue => {
   return proxy
 }
 
-// generate float between min and max
+export const randomInt = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
 export const randomFloat = (min, max) => {
-  const random = Math.random() * (max - min) + min
+  const random = Math.random() * (max - min + 1) + min
   return parseFloat(random.toFixed(6))
 }
 
@@ -62,7 +65,7 @@ export const formatTime = seconds => {
     .join(" ")
 }
 
-export const formatScientificNotation = number => {
+export const formatScientificNotation = (number, precision = 3) => {
   if (number < 1000) {
     return number
   }
@@ -170,7 +173,7 @@ export const formatScientificNotation = number => {
   const sign = Math.sign(number)
   const magnitude = Math.floor(Math.log10(absNumber) / 3)
   const scaledNumber = absNumber / Math.pow(10, magnitude * 3)
-  const formattedNumber = scaledNumber.toFixed(3)
+  const formattedNumber = scaledNumber.toFixed(precision)
 
   return sign * formattedNumber + suffixes[magnitude]
 }

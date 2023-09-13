@@ -1,19 +1,39 @@
+import { RESOURCE } from "./constants"
+import { defaultdict, randomFloat } from "./utils"
+
 // Market Class
 export default class Market {
+  static fromJson(json) {
+    const this_ = new Market()
+    if (
+      json === undefined ||
+      json === null ||
+      Object.entries(json).length === 0
+    ) {
+      return this_
+    }
+    for (const [resourceType, v] of Object.entries(json.resourcePrice)) {
+      this_.resourcePrice[resourceType] = v
+    }
+    return this_
+  }
+
   constructor() {
-    // Initialize market properties
+    this.resourcePrice = defaultdict(0)
+    // TODO: trigger this based on the weather
+    this.updateResourcePrice()
   }
 
-  buyResources(resource, quantity) {
-    // Implement buying of resources logic
+  updateResourcePrice(currentWeather) {
+    for (const [resourceType, resource] of Object.entries(RESOURCE)) {
+      this.resourcePrice[resourceType] = randomFloat(
+        resource.range[0] / 100,
+        resource.range[1] / 100
+      )
+    }
   }
 
-  sellResources(resource, quantity) {
-    // Implement selling of resources logic
-  }
-
-  calculateResourcePrice(resource) {
-    // Calculate the price of a resource based on the weather influence
-    // Return the calculated price
+  calculateResourcePrice(resourceType) {
+    return this.resourcePrice[resourceType]
   }
 }

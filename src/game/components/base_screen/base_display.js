@@ -1,8 +1,9 @@
 import { IdleBuilding } from "../../building"
 import { IDLE_BUILDING, RESOURCE } from "../../constants"
 import { defaultdict, formatScientificNotation, formatTime } from "../../utils"
+import MarketDisplay from "./market_display"
 
-const GAME_COMPONENT_NAMES = {
+export const GAME_COMPONENT_NAMES = {
   MAIN: "game-base",
   TABS: "game-tabs",
   CONTAINER: "game-container",
@@ -59,12 +60,14 @@ export default class BaseDisplay {
   constructor(engine, base) {
     this.engine = engine
     this.base = base
+    this.market = new MarketDisplay(engine, base)
     this.buttons = {}
   }
 
   updateBase(base) {
     this.container && (this.container.innerHTML = "")
     this.base = base
+    this.market.base = base
     return this.create()
   }
 
@@ -111,7 +114,7 @@ export default class BaseDisplay {
         this.showResearch()
         break
       case TAB.MARKET:
-        this.showMarket()
+        this.market.create()
         break
     }
   }
@@ -167,10 +170,6 @@ export default class BaseDisplay {
     if (nextRequirement.length > 0) {
       formatResourceListToStr(container, nextRequirement, baseResource)
     }
-    const futureGenerateSpan = document.createElement("span")
-    futureGenerateSpan.textContent = " \u{27A1} \u{1F9FA} "
-    container.appendChild(futureGenerateSpan)
-    formatResourceListToStr(container, building.willGenerate(1))
   }
 
   showBuilding() {
@@ -212,15 +211,6 @@ export default class BaseDisplay {
       this.gameContainer.id
     )
     research.textContent = "Coming soon..."
-  }
-
-  showMarket() {
-    const market = this.engine.addComponent(
-      GAME_COMPONENT_NAMES.MARKET,
-      "div",
-      this.gameContainer.id
-    )
-    market.textContent = "Coming soon..."
   }
 
   createGameContainer() {
@@ -282,6 +272,9 @@ export default class BaseDisplay {
         break
       case TAB.BUILDING:
         this.updateBuilding()
+        break
+      case TAB.MARKET:
+        this.market.render()
         break
     }
   }
