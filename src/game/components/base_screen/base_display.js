@@ -10,6 +10,7 @@ export const GAME_COMPONENT_NAMES = {
 
   // META Components
   NAME: "game-name",
+  META: "game-meta",
   LOCATION: "game-location",
   RESOURCES: "game-resources",
   RESEARCH: "game-research",
@@ -120,24 +121,29 @@ export default class BaseDisplay {
   }
 
   showMeta() {
+    const container = this.engine.addComponent(
+      GAME_COMPONENT_NAMES.META,
+      "div",
+      this.gameContainer.id
+    )
     this.name = this.engine.addComponent(
       GAME_COMPONENT_NAMES.NAME,
       "div",
-      this.gameContainer.id
+      container.id
     )
     this.name.textContent = `Base: ${this.base.name}`
 
     this.location = this.engine.addComponent(
       GAME_COMPONENT_NAMES.LOCATION,
       "div",
-      this.gameContainer.id
+      container.id
     )
     this.location.textContent = `Location: [latitude: ${this.base.location.y}, longitude: ${this.base.location.x}]`
 
     this.inventory = this.engine.addComponent(
       GAME_COMPONENT_NAMES.RESOURCES,
       "div",
-      this.gameContainer.id
+      container.id
     )
   }
 
