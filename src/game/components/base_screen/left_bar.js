@@ -9,7 +9,7 @@ export default class LeftBar {
   constructor(engine) {
     this.engine = engine
     this.buttons = {}
-    this.expanded = window.screen.width > 425
+    this.expanded = window.screen.width > 480
   }
 
   updateBase(baseId) {
